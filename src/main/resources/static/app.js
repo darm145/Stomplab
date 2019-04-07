@@ -39,7 +39,7 @@ var app = (function () {
             // 2 par el topico y lo que realizara al recibir un evento
             stompClient.subscribe('/topic/newpoint', function (eventbody) {
                 var pointReceived=JSON.parse(eventbody.body);
-                alert("punto recibido en x:"+pointReceived.x+" \n punto recibido en y:"+pointReceived.y);
+                app.receivePoint(parseInt(pointReceived.x),parseInt(pointReceived.y));
             });
         });
 
