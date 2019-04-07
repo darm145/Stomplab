@@ -52,9 +52,11 @@ var app = (function () {
 
         init: function (channel) {
             var can = document.getElementById("canvas");
+            
             app.channel=channel;
             //websocket connection
             connectAndSubscribe(channel);
+            can.addEventListener('click',app.clic);
         },
 
         publishPoint: function(px,py){
@@ -75,6 +77,12 @@ var app = (function () {
         receivePoint:function(x,y){
         	var pt=new Point(x,y);
             addPointToCanvas(pt);
+        },
+        clic: function(event){
+        	var canvas=document.getElementById("canvas");
+        	var delta=canvas.getBoundingClientRect();
+        	
+        	app.publishPoint(event.pageX-delta.left,event.pageY-delta.top);
         }
     };
 
