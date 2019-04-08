@@ -31,10 +31,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <body >
     	Canal:<input id="canal" type="number"/>
-    	<button onclick="app.init($('#canal').val())">Conectarse</button><p></p>
+    	<button onclick="app.init($('#canal').val());app.errase()">Conectarse</button><p></p>
         X:<input id="x" type="number"/>
         Y:<input id="y" type="number"/>        
         <button onclick="app.publishPoint($('#x').val(),$('#y').val())">Send point</button><p></p>
-        <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas>
+        <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas><p></p>
+        <button onclick="app.errase()">Limpiar</button>
     </body>
 </html>
